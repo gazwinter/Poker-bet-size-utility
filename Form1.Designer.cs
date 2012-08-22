@@ -49,9 +49,18 @@
             this.lblPotSize = new System.Windows.Forms.Label();
             this.txtPotSize = new System.Windows.Forms.TextBox();
             this.lblBetAmount = new System.Windows.Forms.Label();
+            this.tabBigBlinds = new System.Windows.Forms.TabPage();
+            this.lblStack = new System.Windows.Forms.Label();
+            this.lblCurrentBB = new System.Windows.Forms.Label();
+            this.txtStack = new System.Windows.Forms.TextBox();
+            this.txtCurrentBB = new System.Windows.Forms.TextBox();
+            this.btnBigBlinds = new System.Windows.Forms.Button();
+            this.lblPlayAdvice = new System.Windows.Forms.Label();
+            this.lblAdvice = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPreFlop.SuspendLayout();
             this.tabPostFlop.SuspendLayout();
+            this.tabBigBlinds.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBet
@@ -67,11 +76,13 @@
             // 
             this.tabControl1.Controls.Add(this.tabPreFlop);
             this.tabControl1.Controls.Add(this.tabPostFlop);
+            this.tabControl1.Controls.Add(this.tabBigBlinds);
             this.tabControl1.Location = new System.Drawing.Point(2, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(358, 221);
             this.tabControl1.TabIndex = 7;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabChanged);
             // 
             // tabPreFlop
             // 
@@ -270,12 +281,89 @@
             this.lblBetAmount.TabIndex = 8;
             this.lblBetAmount.Text = "Amount to Bet";
             // 
+            // tabBigBlinds
+            // 
+            this.tabBigBlinds.Controls.Add(this.btnBigBlinds);
+            this.tabBigBlinds.Controls.Add(this.txtCurrentBB);
+            this.tabBigBlinds.Controls.Add(this.txtStack);
+            this.tabBigBlinds.Controls.Add(this.lblCurrentBB);
+            this.tabBigBlinds.Controls.Add(this.lblStack);
+            this.tabBigBlinds.Location = new System.Drawing.Point(4, 22);
+            this.tabBigBlinds.Name = "tabBigBlinds";
+            this.tabBigBlinds.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBigBlinds.Size = new System.Drawing.Size(350, 195);
+            this.tabBigBlinds.TabIndex = 2;
+            this.tabBigBlinds.Text = "Big Blinds";
+            this.tabBigBlinds.UseVisualStyleBackColor = true;
+            // 
+            // lblStack
+            // 
+            this.lblStack.AutoSize = true;
+            this.lblStack.Location = new System.Drawing.Point(18, 17);
+            this.lblStack.Name = "lblStack";
+            this.lblStack.Size = new System.Drawing.Size(75, 13);
+            this.lblStack.TabIndex = 0;
+            this.lblStack.Text = "Current Stack:";
+            // 
+            // lblCurrentBB
+            // 
+            this.lblCurrentBB.AutoSize = true;
+            this.lblCurrentBB.Location = new System.Drawing.Point(18, 47);
+            this.lblCurrentBB.Name = "lblCurrentBB";
+            this.lblCurrentBB.Size = new System.Drawing.Size(88, 13);
+            this.lblCurrentBB.TabIndex = 1;
+            this.lblCurrentBB.Text = "Current Big Blind:";
+            // 
+            // txtStack
+            // 
+            this.txtStack.Location = new System.Drawing.Point(130, 17);
+            this.txtStack.Name = "txtStack";
+            this.txtStack.Size = new System.Drawing.Size(100, 20);
+            this.txtStack.TabIndex = 2;
+            // 
+            // txtCurrentBB
+            // 
+            this.txtCurrentBB.Location = new System.Drawing.Point(130, 47);
+            this.txtCurrentBB.Name = "txtCurrentBB";
+            this.txtCurrentBB.Size = new System.Drawing.Size(100, 20);
+            this.txtCurrentBB.TabIndex = 3;
+            // 
+            // btnBigBlinds
+            // 
+            this.btnBigBlinds.Location = new System.Drawing.Point(21, 84);
+            this.btnBigBlinds.Name = "btnBigBlinds";
+            this.btnBigBlinds.Size = new System.Drawing.Size(108, 23);
+            this.btnBigBlinds.TabIndex = 4;
+            this.btnBigBlinds.Text = "Calculate Big Blinds";
+            this.btnBigBlinds.UseVisualStyleBackColor = true;
+            this.btnBigBlinds.Click += new System.EventHandler(this.btnBigBlinds_Click);
+            // 
+            // lblPlayAdvice
+            // 
+            this.lblPlayAdvice.AutoSize = true;
+            this.lblPlayAdvice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayAdvice.Location = new System.Drawing.Point(122, 326);
+            this.lblPlayAdvice.Name = "lblPlayAdvice";
+            this.lblPlayAdvice.Size = new System.Drawing.Size(100, 20);
+            this.lblPlayAdvice.TabIndex = 9;
+            this.lblPlayAdvice.Text = "Play Advice";
+            // 
+            // lblAdvice
+            // 
+            this.lblAdvice.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdvice.Location = new System.Drawing.Point(48, 354);
+            this.lblAdvice.Name = "lblAdvice";
+            this.lblAdvice.Size = new System.Drawing.Size(256, 67);
+            this.lblAdvice.TabIndex = 10;
+            // 
             // BetSizeCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(361, 335);
+            this.ClientSize = new System.Drawing.Size(361, 435);
+            this.Controls.Add(this.lblAdvice);
+            this.Controls.Add(this.lblPlayAdvice);
             this.Controls.Add(this.lblBetAmount);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblBet);
@@ -286,6 +374,8 @@
             this.tabPreFlop.PerformLayout();
             this.tabPostFlop.ResumeLayout(false);
             this.tabPostFlop.PerformLayout();
+            this.tabBigBlinds.ResumeLayout(false);
+            this.tabBigBlinds.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,6 +404,14 @@
         private System.Windows.Forms.TextBox txtBigBlind;
         private System.Windows.Forms.Label lblBBSize;
         private System.Windows.Forms.Label lblBetAmount;
+        private System.Windows.Forms.TabPage tabBigBlinds;
+        private System.Windows.Forms.Button btnBigBlinds;
+        private System.Windows.Forms.TextBox txtCurrentBB;
+        private System.Windows.Forms.TextBox txtStack;
+        private System.Windows.Forms.Label lblCurrentBB;
+        private System.Windows.Forms.Label lblStack;
+        private System.Windows.Forms.Label lblPlayAdvice;
+        private System.Windows.Forms.Label lblAdvice;
     }
 }
 
