@@ -48,19 +48,30 @@
             this.txtPercentage = new System.Windows.Forms.TextBox();
             this.lblPotSize = new System.Windows.Forms.Label();
             this.txtPotSize = new System.Windows.Forms.TextBox();
-            this.lblBetAmount = new System.Windows.Forms.Label();
             this.tabBigBlinds = new System.Windows.Forms.TabPage();
-            this.lblStack = new System.Windows.Forms.Label();
-            this.lblCurrentBB = new System.Windows.Forms.Label();
-            this.txtStack = new System.Windows.Forms.TextBox();
-            this.txtCurrentBB = new System.Windows.Forms.TextBox();
             this.btnBigBlinds = new System.Windows.Forms.Button();
+            this.txtCurrentBB = new System.Windows.Forms.TextBox();
+            this.txtStack = new System.Windows.Forms.TextBox();
+            this.lblCurrentBB = new System.Windows.Forms.Label();
+            this.lblStack = new System.Windows.Forms.Label();
+            this.tabPotOdds = new System.Windows.Forms.TabPage();
+            this.btnCalculateEquity = new System.Windows.Forms.Button();
+            this.comStage = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtOuts = new System.Windows.Forms.TextBox();
+            this.lblOuts = new System.Windows.Forms.Label();
+            this.txtAmountToCall = new System.Windows.Forms.TextBox();
+            this.lblAmountToCall = new System.Windows.Forms.Label();
+            this.txtCurrentPotSize = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblBetAmount = new System.Windows.Forms.Label();
             this.lblPlayAdvice = new System.Windows.Forms.Label();
-            this.lblAdvice = new System.Windows.Forms.Label();
+            this.txtAdvice = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPreFlop.SuspendLayout();
             this.tabPostFlop.SuspendLayout();
             this.tabBigBlinds.SuspendLayout();
+            this.tabPotOdds.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBet
@@ -77,6 +88,7 @@
             this.tabControl1.Controls.Add(this.tabPreFlop);
             this.tabControl1.Controls.Add(this.tabPostFlop);
             this.tabControl1.Controls.Add(this.tabBigBlinds);
+            this.tabControl1.Controls.Add(this.tabPotOdds);
             this.tabControl1.Location = new System.Drawing.Point(2, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -271,16 +283,6 @@
             this.txtPotSize.Size = new System.Drawing.Size(100, 20);
             this.txtPotSize.TabIndex = 0;
             // 
-            // lblBetAmount
-            // 
-            this.lblBetAmount.AutoSize = true;
-            this.lblBetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBetAmount.Location = new System.Drawing.Point(122, 227);
-            this.lblBetAmount.Name = "lblBetAmount";
-            this.lblBetAmount.Size = new System.Drawing.Size(125, 20);
-            this.lblBetAmount.TabIndex = 8;
-            this.lblBetAmount.Text = "Amount to Bet";
-            // 
             // tabBigBlinds
             // 
             this.tabBigBlinds.Controls.Add(this.btnBigBlinds);
@@ -296,38 +298,6 @@
             this.tabBigBlinds.Text = "Big Blinds";
             this.tabBigBlinds.UseVisualStyleBackColor = true;
             // 
-            // lblStack
-            // 
-            this.lblStack.AutoSize = true;
-            this.lblStack.Location = new System.Drawing.Point(18, 17);
-            this.lblStack.Name = "lblStack";
-            this.lblStack.Size = new System.Drawing.Size(75, 13);
-            this.lblStack.TabIndex = 0;
-            this.lblStack.Text = "Current Stack:";
-            // 
-            // lblCurrentBB
-            // 
-            this.lblCurrentBB.AutoSize = true;
-            this.lblCurrentBB.Location = new System.Drawing.Point(18, 47);
-            this.lblCurrentBB.Name = "lblCurrentBB";
-            this.lblCurrentBB.Size = new System.Drawing.Size(88, 13);
-            this.lblCurrentBB.TabIndex = 1;
-            this.lblCurrentBB.Text = "Current Big Blind:";
-            // 
-            // txtStack
-            // 
-            this.txtStack.Location = new System.Drawing.Point(130, 17);
-            this.txtStack.Name = "txtStack";
-            this.txtStack.Size = new System.Drawing.Size(100, 20);
-            this.txtStack.TabIndex = 2;
-            // 
-            // txtCurrentBB
-            // 
-            this.txtCurrentBB.Location = new System.Drawing.Point(130, 47);
-            this.txtCurrentBB.Name = "txtCurrentBB";
-            this.txtCurrentBB.Size = new System.Drawing.Size(100, 20);
-            this.txtCurrentBB.TabIndex = 3;
-            // 
             // btnBigBlinds
             // 
             this.btnBigBlinds.Location = new System.Drawing.Point(21, 84);
@@ -338,23 +308,166 @@
             this.btnBigBlinds.UseVisualStyleBackColor = true;
             this.btnBigBlinds.Click += new System.EventHandler(this.btnBigBlinds_Click);
             // 
+            // txtCurrentBB
+            // 
+            this.txtCurrentBB.Location = new System.Drawing.Point(130, 47);
+            this.txtCurrentBB.Name = "txtCurrentBB";
+            this.txtCurrentBB.Size = new System.Drawing.Size(100, 20);
+            this.txtCurrentBB.TabIndex = 3;
+            // 
+            // txtStack
+            // 
+            this.txtStack.Location = new System.Drawing.Point(130, 17);
+            this.txtStack.Name = "txtStack";
+            this.txtStack.Size = new System.Drawing.Size(100, 20);
+            this.txtStack.TabIndex = 2;
+            // 
+            // lblCurrentBB
+            // 
+            this.lblCurrentBB.AutoSize = true;
+            this.lblCurrentBB.Location = new System.Drawing.Point(18, 47);
+            this.lblCurrentBB.Name = "lblCurrentBB";
+            this.lblCurrentBB.Size = new System.Drawing.Size(88, 13);
+            this.lblCurrentBB.TabIndex = 1;
+            this.lblCurrentBB.Text = "Current Big Blind:";
+            // 
+            // lblStack
+            // 
+            this.lblStack.AutoSize = true;
+            this.lblStack.Location = new System.Drawing.Point(18, 17);
+            this.lblStack.Name = "lblStack";
+            this.lblStack.Size = new System.Drawing.Size(75, 13);
+            this.lblStack.TabIndex = 0;
+            this.lblStack.Text = "Current Stack:";
+            // 
+            // tabPotOdds
+            // 
+            this.tabPotOdds.Controls.Add(this.btnCalculateEquity);
+            this.tabPotOdds.Controls.Add(this.comStage);
+            this.tabPotOdds.Controls.Add(this.label2);
+            this.tabPotOdds.Controls.Add(this.txtOuts);
+            this.tabPotOdds.Controls.Add(this.lblOuts);
+            this.tabPotOdds.Controls.Add(this.txtAmountToCall);
+            this.tabPotOdds.Controls.Add(this.lblAmountToCall);
+            this.tabPotOdds.Controls.Add(this.txtCurrentPotSize);
+            this.tabPotOdds.Controls.Add(this.label1);
+            this.tabPotOdds.Location = new System.Drawing.Point(4, 22);
+            this.tabPotOdds.Name = "tabPotOdds";
+            this.tabPotOdds.Size = new System.Drawing.Size(350, 195);
+            this.tabPotOdds.TabIndex = 3;
+            this.tabPotOdds.Text = "Pot Odds";
+            this.tabPotOdds.UseVisualStyleBackColor = true;
+            // 
+            // btnCalculateEquity
+            // 
+            this.btnCalculateEquity.Location = new System.Drawing.Point(105, 150);
+            this.btnCalculateEquity.Name = "btnCalculateEquity";
+            this.btnCalculateEquity.Size = new System.Drawing.Size(140, 31);
+            this.btnCalculateEquity.TabIndex = 8;
+            this.btnCalculateEquity.Text = "Calculate Equity and Odds";
+            this.btnCalculateEquity.UseVisualStyleBackColor = true;
+            this.btnCalculateEquity.Click += new System.EventHandler(this.btnCalculateEquity_Click);
+            // 
+            // comStage
+            // 
+            this.comStage.FormattingEnabled = true;
+            this.comStage.Items.AddRange(new object[] {
+            "Flop",
+            "Turn",
+            "River"});
+            this.comStage.Location = new System.Drawing.Point(140, 114);
+            this.comStage.Name = "comStage";
+            this.comStage.Size = new System.Drawing.Size(121, 21);
+            this.comStage.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Stage:";
+            // 
+            // txtOuts
+            // 
+            this.txtOuts.Location = new System.Drawing.Point(140, 87);
+            this.txtOuts.Name = "txtOuts";
+            this.txtOuts.Size = new System.Drawing.Size(100, 20);
+            this.txtOuts.TabIndex = 5;
+            // 
+            // lblOuts
+            // 
+            this.lblOuts.AutoSize = true;
+            this.lblOuts.Location = new System.Drawing.Point(29, 87);
+            this.lblOuts.Name = "lblOuts";
+            this.lblOuts.Size = new System.Drawing.Size(84, 13);
+            this.lblOuts.TabIndex = 4;
+            this.lblOuts.Text = "Number of Outs:";
+            // 
+            // txtAmountToCall
+            // 
+            this.txtAmountToCall.Location = new System.Drawing.Point(140, 54);
+            this.txtAmountToCall.Name = "txtAmountToCall";
+            this.txtAmountToCall.Size = new System.Drawing.Size(100, 20);
+            this.txtAmountToCall.TabIndex = 3;
+            // 
+            // lblAmountToCall
+            // 
+            this.lblAmountToCall.AutoSize = true;
+            this.lblAmountToCall.Location = new System.Drawing.Point(29, 54);
+            this.lblAmountToCall.Name = "lblAmountToCall";
+            this.lblAmountToCall.Size = new System.Drawing.Size(78, 13);
+            this.lblAmountToCall.TabIndex = 2;
+            this.lblAmountToCall.Text = "Amount to Call:";
+            // 
+            // txtCurrentPotSize
+            // 
+            this.txtCurrentPotSize.Location = new System.Drawing.Point(140, 21);
+            this.txtCurrentPotSize.Name = "txtCurrentPotSize";
+            this.txtCurrentPotSize.Size = new System.Drawing.Size(100, 20);
+            this.txtCurrentPotSize.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Current Potsize:";
+            // 
+            // lblBetAmount
+            // 
+            this.lblBetAmount.AutoSize = true;
+            this.lblBetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBetAmount.Location = new System.Drawing.Point(118, 227);
+            this.lblBetAmount.Name = "lblBetAmount";
+            this.lblBetAmount.Size = new System.Drawing.Size(125, 20);
+            this.lblBetAmount.TabIndex = 8;
+            this.lblBetAmount.Text = "Amount to Bet";
+            // 
             // lblPlayAdvice
             // 
             this.lblPlayAdvice.AutoSize = true;
             this.lblPlayAdvice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayAdvice.Location = new System.Drawing.Point(122, 326);
+            this.lblPlayAdvice.Location = new System.Drawing.Point(130, 326);
             this.lblPlayAdvice.Name = "lblPlayAdvice";
             this.lblPlayAdvice.Size = new System.Drawing.Size(100, 20);
             this.lblPlayAdvice.TabIndex = 9;
             this.lblPlayAdvice.Text = "Play Advice";
             // 
-            // lblAdvice
+            // txtAdvice
             // 
-            this.lblAdvice.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdvice.Location = new System.Drawing.Point(48, 354);
-            this.lblAdvice.Name = "lblAdvice";
-            this.lblAdvice.Size = new System.Drawing.Size(256, 67);
-            this.lblAdvice.TabIndex = 10;
+            this.txtAdvice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAdvice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdvice.Location = new System.Drawing.Point(24, 350);
+            this.txtAdvice.Multiline = true;
+            this.txtAdvice.Name = "txtAdvice";
+            this.txtAdvice.ReadOnly = true;
+            this.txtAdvice.Size = new System.Drawing.Size(315, 73);
+            this.txtAdvice.TabIndex = 10;
+            this.txtAdvice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetSizeCalculator
             // 
@@ -362,7 +475,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(361, 435);
-            this.Controls.Add(this.lblAdvice);
+            this.Controls.Add(this.txtAdvice);
             this.Controls.Add(this.lblPlayAdvice);
             this.Controls.Add(this.lblBetAmount);
             this.Controls.Add(this.tabControl1);
@@ -376,6 +489,8 @@
             this.tabPostFlop.PerformLayout();
             this.tabBigBlinds.ResumeLayout(false);
             this.tabBigBlinds.PerformLayout();
+            this.tabPotOdds.ResumeLayout(false);
+            this.tabPotOdds.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,7 +526,17 @@
         private System.Windows.Forms.Label lblCurrentBB;
         private System.Windows.Forms.Label lblStack;
         private System.Windows.Forms.Label lblPlayAdvice;
-        private System.Windows.Forms.Label lblAdvice;
+        private System.Windows.Forms.TabPage tabPotOdds;
+        private System.Windows.Forms.ComboBox comStage;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtOuts;
+        private System.Windows.Forms.Label lblOuts;
+        private System.Windows.Forms.TextBox txtAmountToCall;
+        private System.Windows.Forms.Label lblAmountToCall;
+        private System.Windows.Forms.TextBox txtCurrentPotSize;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCalculateEquity;
+        private System.Windows.Forms.TextBox txtAdvice;
     }
 }
 
